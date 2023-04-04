@@ -1,0 +1,78 @@
+{{ define "header" }}
+<!-- Post Header -->
+<style type="text/css">
+	header.intro-header {
+		background-image: url('{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ .Site.Params.header_image | relURL}}{{ end }}')
+	}
+
+</style>
+{{ if eq .Params.headerstyle "text" }}
+<header class="intro-header style-text">
+	{{ else }}
+	<header class="intro-header">
+		{{ end }}
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+					<div class="post-heading">
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	{{ end }}
+
+	{{ define "main" }}
+	<!-- Post Content -->
+
+	<div class="container">
+		<div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+			<div class="tags">
+				{{ range .Params.tags }}
+				<a class="tag" href="{{ " /tags/" | relLangURL }}{{ . | urlize }}" title="{{ . }}">
+					{{ . }}
+				</a>
+				{{ end }}
+			</div>
+			<h1>{{ .Title }}</h1>
+			<h2 class="subheading">{{ .Params.subtitle }}</h2>
+
+			{{ .Content }}
+
+			{{ if .Site.Params.reward }}
+			{{ partial "reward.html" . }}
+			{{ end }}
+
+			{{ if or (.PrevInSection) (.NextInSection) }}
+			<hr>
+			<ul class="pager">
+				{{ if .PrevInSection }}
+				<li class="previous">
+					<a href="{{ .PrevInSection.RelPermalink }}" data-toggle="tooltip" data-placement="top"
+						title="{{ .PrevInSection.Title}}">&larr;
+						Previous Post</a>
+				</li>
+				{{ end }}
+				{{ if .NextInSection }}
+				<li class="next">
+					<a href="{{ .NextInSection.RelPermalink }}" data-toggle="tooltip" data-placement="top"
+						title="{{ .NextInSection.Title}}">Next
+						Post &rarr;</a>
+				</li>
+				{{ end }}
+			</ul>
+			{{ end }}
+
+			{{ partial "comments.html" . }}
+
+
+		</div>
+		{{ partial "sidebar.html" . }}
+
+
+
+
+		{{ end }}

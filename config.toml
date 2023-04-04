@@ -1,5 +1,5 @@
 #baseurl = "https://zhaohuabing.com"
-title = "All about .net"
+#title = "All about .net"
 theme = "hugo-theme-cleanwhite"
 languageCode = "en-us"
 # Enable comments by entering your Disqus shortname
@@ -9,7 +9,7 @@ preserveTaxonomyNames = true
 paginate = 5 #frontpage pagination
 
 [params]
-  header_image = "img/cleandesk.png"
+  header_image = "img/code.jpg" # use absolute URL, seeing it's used in both `/` and `/about/`
   SEOTitle = "All about .net"
   description = "Development, Azure, .Net"
   keyword = "Development, Azure, .Net"
@@ -48,6 +48,7 @@ paginate = 5 #frontpage pagination
 
   # Include any custom CSS and/or JS files, url or relative to /static folder
   #custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "css/main.css"]
+  custom_css = ["css/blog.css"]
   #custom_js = ["js/lightbox.js", "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js", "js/main.js"]
 
 [params.social]
