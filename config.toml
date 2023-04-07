@@ -31,7 +31,7 @@ paginate = 5 #frontpage pagination
   algolia_apiKey = ""
 
   # Sidebar settings
-  sidebar_about_description = "Software Developer, Open Source Enthusiast and Life Adventurer"
+  sidebar_about_description = "A blog about .Net, Azure, software development and my personal expreriences as a software developer. Opinions are my own."
   #sidebar_avatar = "img/avatar-zhaohuabing.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
   #sidebar_avatar = "img/zhaohuabing.png"      # use absolute URL, seeing it's used in both `/` and `/about/`
 
@@ -40,7 +40,7 @@ paginate = 5 #frontpage pagination
 
   #Enable wechat pay & alipay to allow readers send reward money if they like the articles
   reward = false
-  # reward_guide = "如果这篇文章对你有用,请随意打赏"
+
 
   friends = false
   bookmarks = false
@@ -48,30 +48,25 @@ paginate = 5 #frontpage pagination
 
   # Include any custom CSS and/or JS files, url or relative to /static folder
   #custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "css/main.css"]
-  custom_css = ["css/blog.css"]
+  custom_css = ["css/overrides.css"]
   #custom_js = ["js/lightbox.js", "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js", "js/main.js"]
 
 [params.social]
   rss            = false
-  #email          = "youremail@gmail.com"
-  #facebook      = "full profile url in facebook"
-  #googleplus    = "full profile url in googleplus"
-  #twitter       = "full profile url in twitter"
-  linkedin       = "https://www.linkedin.com/in/dtiemstra"
-  stackoverflow  = "https://stackoverflow.com/users/dtiemstra"
-  #instagram     = "full profile url in instagram"
+  linkedin       = "https://www.linkedn.com/in/dtiemstra"
+  stackoverflow  = "https://stackoverflow.com/users/dtiemstra"  #instagram     = "full profile url in instagram"
   github         = "https://github.com/dtiemstra"
 
 
-  [[params.addtional_menus]]
-  title =  "ARCHIVE"
-  href =  "/archive/"
-  [[params.addtional_menus]]
-  title =  "NOTES"
-  href =  "/notes/"
-  [[params.addtional_menus]]
-  title =  "ABOUT"
-  href =  "/about/"
+#   [[params.addtional_menus]]
+#   title =  "ARCHIVE"
+#   href =  "/archive/"
+#   [[params.addtional_menus]]
+#   title =  "NOTES"
+#   href =  "/notes/"
+#   [[params.addtional_menus]]
+#   title =  "ABOUT"
+#   href =  "/about/"
 
 [outputFormats.Algolia]
 baseName = "algolia"
