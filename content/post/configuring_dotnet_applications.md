@@ -19,7 +19,7 @@ The .NET Options framework is a powerful and flexible feature that allows develo
 
 The Options framework also supports validation of configuration data, which helps to catch errors early in the development process. It allows developers to define constraints on configuration options, such as minimum and maximum values, required fields, and regular expression patterns. If any of the validation rules fail, the framework throws an exception, making it easy to diagnose and fix the issue.
 
-The OptionBuilder class in the .NET Options framework contains several methods for validating configuration options, such as Validate, ValidateDataAnnotations, and ValidateWith.
+The OptionBuilder class in the .NET Options framework contains several (extension)methods for validating configuration options, such as Validate, ValidateDataAnnotations and ValidateOnStart.
 
 While you can certainly write your own custom validation logic using the Validate and ValidateWith methods, the ValidateDataAnnotations method provides an easy way to leverage the power of the System.ComponentModel.DataAnnotations namespace. This namespace contains a set of validation attributes, such as RequiredAttribute, StringLengthAttribute, and RegularExpressionAttribute, which can be applied to properties in your configuration class to enforce validation rules.
 
