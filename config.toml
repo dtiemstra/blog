@@ -8,6 +8,7 @@ googleAnalytics = ""
 preserveTaxonomyNames = true
 paginate = 5 #frontpage pagination
 
+
 [params]
   header_image = "img/code.jpg" # use absolute URL, seeing it's used in both `/` and `/about/`
   SEOTitle = "All about .net"

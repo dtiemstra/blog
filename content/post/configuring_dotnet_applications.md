@@ -1,23 +1,29 @@
 ---
 title: 'Configuring your .Net applications'
 #subtitle: 'Mijn eerste blog subtitle'
-Description: 'How to '
-date: 2017-11-04
+#Description: 'How to '
+date: 2023-04-07
 author: 'Diederik Tiemstra'
-tags: ['tag1', 'tag2']
+tags: ['.net', 'configuration']
 categories: ['Tech']
 draft: false
 ---
 
-Configuration is a crucial aspect of any software application. It allows developers to separate application logic from its configuration, making it easier to manage, maintain, and deploy the application. In .NET applications, configuration is typically managed using the ConfigurationManager class, which can be used to make settings from different sources available to your application. The order in which these sources are registered is important because your application starts, it loads the configuration providers in the order they are configured. Furthermore, if a configuration source is loaded and the key already exists from a previous file, it overwrites the previous value.
+Configuration is a crucial aspect of any software application. It allows developers to separate application logic from its configuration, making it easier to manage, maintain, and deploy the application. In .NET applications, configuration is typically managed using the ConfigurationManager class, which can be used to make settings from different sources available to your application. The order in which these sources are registered is important because your application starts, it loads the configuration providers in the order they are configured. Furthermore, if a configuration source is loaded and the key already exists in a configuration provider that is registered earlier, it overwrites the previous value.
 
 ![validation](/img/configuration/providers.png)
 
 ### Validating your settings
 
-.NET applications can use attributes from the System/ComponentModel.DataAnnotations namespace to validate configuration settings. DataAnnotations are attributes that can be applied to properties in classes to enforce validation rules on their values. They are commonly used in model classes to enforce validation rules on user input data, but they can also be used to validate configuration settings.
+The .NET Options framework is a powerful and flexible feature that allows developers to configure their .NET applications with ease. It simplifies the process of reading configuration data from various sources such as environment variables, command-line arguments, and JSON files, and makes it available to the application through strongly typed classes.
 
-To use DataAnnotations for configuration validation, you need to create a configuration class with properties that represent the configuration settings. For example, if your application needs some custom settings, you might create a class like this:
+The Options framework also supports validation of configuration data, which helps to catch errors early in the development process. It allows developers to define constraints on configuration options, such as minimum and maximum values, required fields, and regular expression patterns. If any of the validation rules fail, the framework throws an exception, making it easy to diagnose and fix the issue.
+
+The OptionBuilder class in the .NET Options framework contains several methods for validating configuration options, such as Validate, ValidateDataAnnotations, and ValidateWith.
+
+While you can certainly write your own custom validation logic using the Validate and ValidateWith methods, the ValidateDataAnnotations method provides an easy way to leverage the power of the System.ComponentModel.DataAnnotations namespace. This namespace contains a set of validation attributes, such as RequiredAttribute, StringLengthAttribute, and RegularExpressionAttribute, which can be applied to properties in your configuration class to enforce validation rules.
+
+To use DataAnnotations for configuration validation, you need to create a configuration class with properties that represent the configuration settings and decorate the properties with specific attributes. For example, if your application needs some custom settings, you might create a class like this:
 
 ```
 public class MySettings
@@ -72,4 +78,4 @@ If we provide the following configuration to the application we expect an except
 ```
 
 However, in this case the application starts without throwing an exception. As mentioned before, this is because DataAnnotion attributes on nested objects are not evaluated.
-In this scenarion you can either write your own custom validation logic or you can try to find a suitable nuget package which can handle nested objects.
+In this scenario it's up to you to write your own custom validation logic. More information (and a solution to this problem) can be found on the [Microsoft .NET Github page](https://github.com/dotnet/runtime/issues/36093)
