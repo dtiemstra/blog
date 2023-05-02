@@ -2,7 +2,7 @@
 title: 'Configuring your .Net applications'
 date: 2023-04-07
 author: 'Diederik Tiemstra'
-tags: ['.net', 'configuration']
+tags: ['.NET', 'configuration']
 categories: ['Tech']
 draft: false
 ---

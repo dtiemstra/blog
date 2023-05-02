@@ -1,9 +1,10 @@
 ---
 title: 'Prevent valid messages from being rejected by AWS Lambda'
-summary: 'By default, a batch of messages being processed by a Lambda function through SQS polling would either be completely successful, in which case the records would be deleted from the SQS queue, or would completely fail, and the records would be kept on the queue to be reprocessed. The Partial Batch Response feature an SQS queue will only retain those records which could not be successfully processed, preventing valid messages from being rejected.'
+summary: 'Partial batch response is a feature of AWS Lambda that allows you to signal which messages in a batch were not processed successfully. This prevents all messages in a single batch from being rejected when an error occurs during the processing of a single message.'
 date: 2023-05-02
 author: 'Diederik Tiemstra'
 tags: ['AWS Lambda', '.NET']
+categories: ['Tech']
 draft: false
 ---
 
@@ -48,6 +49,10 @@ public async Task<SQSBatchResponse> ProcessMessages(SQSEvent sqsEvent)
 }
 ```
 
-## Not only SQS
+Only the messages that are marked as failed will be visible again in the queue.
 
-Setting the ReportItemFailures is not only limited to AWS SQS as the datasource for your Lambda function. When using Kinesis or DynamoDB Streams the ReportItemFailures can also be set.
+**Important: If you're using this feature with a FIFO queue, your function should stop processing messages after the first failure and return all failed and unprocessed messages in batchItemFailures. This helps to preserve the correct order of messages in your queue.**
+
+## Not limted to SQS
+
+Setting the ReportItemFailures is not only limited to AWS SQS as the datasource for your Lambda function. When using Kinesis or DynamoDB Streams the ReportItemFailures can also be set. See [https://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) for more information.
