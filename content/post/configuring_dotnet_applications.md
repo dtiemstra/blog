@@ -1,7 +1,5 @@
 ---
 title: 'Configuring your .Net applications'
-#subtitle: 'Mijn eerste blog subtitle'
-#Description: 'How to '
 date: 2023-04-07
 author: 'Diederik Tiemstra'
 tags: ['.net', 'configuration']
