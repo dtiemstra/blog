@@ -1,0 +1,39 @@
+<!-- post list -->
+<div data-pagefind-ignore="all">
+	{{ range $index, $element := $.Paginator.Pages }}
+	<div class="post-preview">
+		<a href="{{ .Permalink }}">
+			<h2 class="post-title">
+				{{ .Title }}
+			</h2>
+			{{with .Params.subtitle }}
+			<h3 class="post-subtitle">
+				{{ . }}
+			</h3>
+			{{ end }}
+
+			<div class="post-content-preview">
+				{{ .Summary}}
+				<br />
+				Read more.......
+			</div>
+		</a>
+		<p class="post-meta">
+			{{ if .Params.metadata }}
+			{{ range $index, $element := .Params.metadata }}
+			{{ if .link }}
+			<a href="{{ .link }}">{{ .text }}</a>
+			{{ else }}
+			{{ .text }}
+			{{ end }}
+			{{ end }}
+			{{ else }}
+			Posted on {{ .Date.Format "Monday, January 2, 2006" }}
+			<!-- Don't show "Last Modified on" if update happened on the same day. -->
+			{{ end }}
+		</p>
+
+	</div>
+	<hr>
+	{{ end }}
+</div>
