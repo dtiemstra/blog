@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         defaults:
             run:
-                working-directory: ./blog
+                working-directory: ./
         steps:
             - uses: actions/checkout@v2
               with:
@@ -27,12 +27,14 @@ jobs:
             - name: Build
               run: hugo --minify
 
+            - run: ls
+
             - name: Deploy
               uses: peaceiris/actions-gh-pages@v3
               if: github.ref == 'refs/heads/main'
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./test
+                  publish_dir: ./publish
 
         #   - uses: wangchucheng/algolia-uploader@master
         #     with:
