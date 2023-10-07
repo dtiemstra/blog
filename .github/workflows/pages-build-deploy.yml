@@ -1,33 +1,36 @@
 name: github pages
 
 on:
-    push:
-        branches:
-            - main
-    pull_request:
+	push:
+		branches:
+			- main
+	pull_request:
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        defaults:
-            run:
-                working-directory: ./
-        steps:
-            - uses: actions/checkout@v2
-              with:
-                  submodules: true # Fetch Hugo themes (true OR recursive)
-                  fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+	build:
+		runs-on: ubuntu-latest
+		defaults:
+			run:
+				working-directory: ./
+		steps:
+			- uses: actions/checkout@v2
+			  with:
+				  submodules: true # Fetch Hugo themes (true OR recursive)
+				  fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
-            - name: Setup Hugo
-              uses: peaceiris/actions-hugo@v2
-              with:
-                  hugo-version: '0.91.2'
-                  # extended: true
+			- name: Setup Hugo
+			  uses: peaceiris/actions-hugo@v2
+			  with:
+				  hugo-version: '0.91.2'
+				  # extended: true
 
-            - name: Build
-              run: hugo --minify
+			- name: Build
+			  run: hugo --minify
 
-            - run: ls
+			- run: |
+				ls
+				cd ./publish
+				ls
 
             - name: Deploy
               uses: peaceiris/actions-gh-pages@v3
