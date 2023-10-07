@@ -1,0 +1,34 @@
+.intro-header .site-heading,
+.intro-header .post-heading,
+.intro-header .page-heading {
+	padding: 50px 0 50px;
+	color: #fff;
+}
+@media only screen and (min-width: 768px) {
+	.intro-header .site-heading,
+	.intro-header .post-heading,
+	.intro-header .page-heading {
+		padding: 50px 0 50px;
+	}
+}
+.intro-header .site-heading {
+	padding: 50px 0 50px;
+}
+@media only screen and (min-width: 768px) {
+	.intro-header .site-heading {
+		padding: 50px 0 50px;
+	}
+}
+
+.post-container h1,
+.post-container h2,
+.post-container h3,
+.post-container h4,
+.post-container h5,
+.post-container h6 {
+	margin: 0px 0 20px;
+}
+
+.post-preview > a > .post-title {
+	margin-top: 0px;
+}
