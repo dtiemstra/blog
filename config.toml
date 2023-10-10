@@ -1,4 +1,4 @@
-baseurl = "dtiemstra.github.io"
+baseurl = "dtiemstra.github.io/blog"
 #title = "All about .net"
 theme = "hugo-theme-cleanwhite"
 languageCode = "en-us"
