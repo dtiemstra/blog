@@ -41,8 +41,6 @@ paginate = 5 #frontpage pagination
 
   #Enable wechat pay & alipay to allow readers send reward money if they like the articles
   reward = false
-
-
   friends = false
   bookmarks = false
   about_me = true
