@@ -9,7 +9,7 @@ draft: false
 
 Configuration is a crucial aspect of any software application. It allows developers to separate application logic from its configuration, making it easier to manage, maintain, and deploy the application. In .NET applications, configuration is typically managed using the ConfigurationManager class, which can be used to make settings from different sources available to your application. The order in which these sources are registered is important because your application starts, it loads the configuration providers in the order they are configured. Furthermore, if a configuration source is loaded and the key already exists in a configuration provider that is registered earlier, it overwrites the previous value.
 
-![validation](/img/configuration/providers.png)
+![validation](/blog/img/configuration/providers.png)
 
 ### Validating your settings
 
@@ -36,7 +36,7 @@ public class MySettings
 
 In this example, the MySetting1 property is marked as required using the Required attribute. This means that if this property is not present in one of the configurationproviders, an exception will be thrown when the configuration class is loaded. The MySetting2 property must have a configured value between 1 and 100.
 
-![validation](/img/configuration/data-annotations.png)
+![validation](/blog/img/configuration/data-annotations.png)
 
 By using DataAnnotations for configuration validation, you can ensure that your application's configuration is always valid and complete. This can help prevent errors and improve the overall stability and reliability of your application.
 
